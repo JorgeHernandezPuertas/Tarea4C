@@ -15,7 +15,7 @@ public class Persona {
     // Atributos de instancia
     private String nombre;
     private int edad;
-    private char sexo; // Solo puede ser 'M', 'H', 'O'
+    private String sexo; // Solo puede ser "M", "H", "O"
     private float peso; // Peso en kilos
     private int altura; // Altura en centimetros
     private String NIF; // String de 9 elementos que contiene 8 numeros y 1 letra
@@ -23,18 +23,18 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String nombre, int edad, char sexo, float peso, int altura) {
+    public Persona(String nombre, int edad, String sexo, float peso, int altura) {
         this.nombre = nombre;
         this.edad = edad;
-        this.sexo = (filtrarSexo(sexo)) ? sexo : 'O'; // Si pasa el filtro se pone el char que sea y si no se pone 'O'
+        this.sexo = (filtrarSexo(sexo)) ? sexo : "O"; // Si pasa el filtro se pone la letra que sea y si no se pone "O"
         this.peso = peso;
         this.altura = altura;
         this.NIF = generarNIF();
     }
 
     // Método para filtrar el sexo de cada persona creada (Si es 'M', 'H' o 'O' da true, en caso contrario false)
-    private boolean filtrarSexo(char sexo) {
-        String sexoString = "" + sexo;
+    private boolean filtrarSexo(String sexo) {
+        String sexoString = sexo;
         return (sexoString.equals("M") || sexoString.equals("H") || sexoString.equals("O"));
     }
 
@@ -135,7 +135,7 @@ public class Persona {
         return edad;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
@@ -160,7 +160,7 @@ public class Persona {
         this.edad = edad;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
