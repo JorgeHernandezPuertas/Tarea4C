@@ -22,7 +22,7 @@ public class ServicioPersona {
         // Pido los datos
         String nombre = pedirNombreTeclado();
         int edad = pedirEdad();
-        String sexo = pedirSexo();
+        char sexo = pedirSexo();
         float peso = pedirPeso();
         int altura = pedirAltura();
         // Creo la persona
@@ -63,10 +63,10 @@ public class ServicioPersona {
     }
 
     // Método para pedir el sexo
-    private static String pedirSexo() {
-        String sexo = "";
+    private static char pedirSexo() {
+        char sexo = 'O';
         System.out.println("Introduce el sexo de la persona ('H', 'M' o 'O'): ");
-        sexo = teclado.nextLine();
+        sexo = teclado.nextLine().charAt(0);
         System.out.println("------------------------------------------");
         return sexo;
     }
