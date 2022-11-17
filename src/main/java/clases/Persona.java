@@ -120,12 +120,12 @@ public class Persona {
     public boolean esMayorEdad() {
         return (this.edad >= 18);
     }
-    
+
     // Método para calcular el IMC de la persona
     public float calcularIMC() {
-        return this.peso/(float)Math.pow(this.altura/100.0,2); // Fórmula del IMC divido altura entre 100 para pasar a metros
+        return this.peso / (float) Math.pow(this.altura / 100.0, 2); // Fórmula del IMC divido altura entre 100 para pasar a metros
     }
-    
+
     // Getters
     public String getNombre() {
         return nombre;
@@ -150,7 +150,7 @@ public class Persona {
     public String getNIF() {
         return NIF;
     }
-    
+
     // Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -171,7 +171,7 @@ public class Persona {
     public void setAltura(int altura) {
         this.altura = altura;
     }
-    
+
     // Método toString
     @Override
     public String toString() {
@@ -186,11 +186,26 @@ public class Persona {
         sb.append('}');
         return sb.toString();
     }
-    
+
     // Método de dar like a una serie
     public void darLikeSerie(Serie serie) {
         serie.darLike(); // Da like a la serie pasada
     }
-    
-    
+
+    // Método para calcular su tipo de peso según los valores que da el IMC. Si tienen peso normal, inferior 
+    // o superior, el rango de peso normal es (18,5-24,9)
+    public String calcularTipoIMC(float imc) {
+        String tipoPeso = "";
+        if (imc < 18.5) {
+            tipoPeso = "inferior al normal";
+        } else if (imc <= 24.9) {
+            tipoPeso = "normal";
+        } else if (imc > 24.9) {
+            tipoPeso = "superior al normal";
+        } else {
+            tipoPeso = "no tiene IMC";
+        }
+        return tipoPeso;
+    }
+
 }
